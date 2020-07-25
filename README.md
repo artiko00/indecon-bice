@@ -1,29 +1,26 @@
 # bancobice
 
-## Project setup
+## Instrucciones de instalacion
+primero realizar
+
+```
+git clone https://github.com/artiko00/indecon-bice
+```
+
+luego ingresar a la carpeta indecon-bice y ejecutar
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Puede iniciar la aplicacion web con 
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Para realizar las pruebas unitarias debera ejecutar 
 
-### Run your unit tests
 ```
 npm run test:unit
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
