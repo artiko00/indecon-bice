@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div id="app" class="container-fluid">
+    <Dashboard :indecon="indecon" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Dashboard from "./components/Dashboard.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Dashboard
+  },
+  data() {
+    return {
+      indecon: {}
+    };
+  },
+  methods: {
+    getIndicadores() {
+      const axios = require("axios").default;
+      axios
+        .get("http://localhost:8080/last")
+        .then(res => {
+          return res.data;
+        })
+        .then(data => {
+          this.indecon = data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  },
+  created() {
+    this.getIndicadores();
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
